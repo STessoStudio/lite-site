@@ -1,4 +1,4 @@
-# STST — Sito Vetrina
+# STST — Lite Site
 
 Static showcase site for **STesso STudio**, a graphic design studio in Brescia. Commissioned mobile-first website with contact info, animated content, and three visual layout variants.
 

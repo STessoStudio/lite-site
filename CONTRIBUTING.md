@@ -10,8 +10,8 @@
 ## Getting Started
 
 ```bash
-git clone <repo-url>
-cd sito-vetrina
+git clone git@github.com:STessoStudio/lite-site.git
+cd lite-site
 bun install
 bun run dev
 ```

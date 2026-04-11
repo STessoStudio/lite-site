@@ -1,5 +1,5 @@
 {
-	"name": "STST Sito Vetrina",
+	"name": "STST Lite Site",
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:22",
 	"features": {
 		"ghcr.io/shyim/devcontainers-features/bun:0": {},
