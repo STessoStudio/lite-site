@@ -1,0 +1,88 @@
+name: Release
+
+on:
+    push:
+        branches: [main]
+
+permissions:
+    contents: write
+    pull-requests: write
+    packages: write
+
+concurrency:
+    group: release-${{ github.ref }}
+    cancel-in-progress: false
+
+jobs:
+    ci:
+        uses: ./.github/workflows/ci.yml
+
+    release:
+        needs: ci
+        runs-on: ubuntu-latest
+        outputs:
+            release_created: ${{ steps.release.outputs.release_created }}
+            tag_name: ${{ steps.release.outputs.tag_name }}
+        steps:
+            - uses: googleapis/release-please-action@v4
+              id: release
+              with:
+                  release-type: node
+
+    publish:
+        needs: release
+        if: needs.release.outputs.release_created == 'true'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: oven-sh/setup-bun@v2
+
+            - name: Cache bun dependencies
+              uses: actions/cache@v4
+              with:
+                  path: ~/.bun/install/cache
+                  key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+                  restore-keys: bun-${{ runner.os }}-
+
+            - run: bun install --frozen-lockfile
+            - run: bun run build
+
+            - name: Create release archive
+              run: tar -czf static-site.tar.gz -C out .
+
+            - name: Upload to GH Release
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: gh release upload ${{ needs.release.outputs.tag_name }} static-site.tar.gz
+
+            - uses: docker/login-action@v3
+              with:
+                  registry: ghcr.io
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+
+            - uses: docker/build-push-action@v6
+              with:
+                  push: true
+                  tags: |
+                      ghcr.io/${{ github.repository }}:${{ needs.release.outputs.tag_name }}
+                      ghcr.io/${{ github.repository }}:latest
+
+    deploy:
+        needs: [ci, release, publish]
+        if: needs.release.outputs.release_created == 'true'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download build artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: static-site
+                  path: out/
+
+            - name: Deploy to Cloudflare Pages
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages deploy out --project-name=stst-sito-vetrina

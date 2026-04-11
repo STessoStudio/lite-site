@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.git
+.tasks
+.devcontainer
+.github
+*.md
+lefthook.yml
+commitlint.config.mjs
+biome.json
+.release-please-manifest.json
+release-please-config.json
+fonts/**/StartHere*

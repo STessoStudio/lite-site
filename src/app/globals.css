@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+	/* ── Colors ── */
+	--color-st-bianco: #ffffff;
+	--color-st-nero: #000000;
+	--color-st-rosso: #e20303;
+
+	/* ── Font Families ── */
+	/* Bridge next/font CSS vars (set on <html>) into Tailwind utilities */
+	--font-ibm-mono: var(--font-ibm-mono-var);
+	--font-neue-haas: var(--font-neue-haas-var);
+	--font-slipstream: var(--font-slipstream-var);
+}
