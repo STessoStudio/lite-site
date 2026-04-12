@@ -18,3 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Set `<html lang="it">` for correct language declaration
+
+## 1.0.0 (2026-04-11)
+
+
+### Features
+
+* implement STST sito-vetrina initial setup ([45d2f89](https://github.com/STessoStudio/lite-site/commit/45d2f89234f9631b2fafbb667341d6134566529f))
