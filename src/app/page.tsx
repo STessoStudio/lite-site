@@ -2,8 +2,8 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
+import { BlackSkin } from "@/components/BlackSkin";
 import { CycleDot } from "@/components/CycleDot";
-import { LayoutNera } from "@/components/LayoutNera";
 import { LayoutRossa } from "@/components/LayoutRossa";
 import { SplashScreen } from "@/components/SplashScreen";
 import { WhiteSkin } from "@/components/WhiteSkin";
@@ -65,7 +65,7 @@ export default function HomePage() {
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.4 }}
 					>
-						<LayoutNera />
+						<BlackSkin />
 					</motion.div>
 				) : (
 					<motion.div
