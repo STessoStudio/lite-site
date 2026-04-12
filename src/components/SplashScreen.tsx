@@ -1,56 +1,78 @@
 import { motion } from "framer-motion";
 
+const XLines = () => (
+	<svg
+		className="absolute inset-0 w-full h-full z-1"
+		viewBox="0 0 100 100"
+		preserveAspectRatio="none"
+		aria-hidden="true"
+	>
+		<line
+			x1="0"
+			y1="0"
+			x2="100"
+			y2="100"
+			stroke="#e20303"
+			strokeWidth="1"
+			vectorEffect="non-scaling-stroke"
+		/>
+		<line
+			x1="100"
+			y1="0"
+			x2="0"
+			y2="100"
+			stroke="#e20303"
+			strokeWidth="1"
+			vectorEffect="non-scaling-stroke"
+		/>
+	</svg>
+);
+
 export function SplashScreen() {
 	return (
 		<motion.div
-			className="flex h-dvh w-full flex-col items-center justify-between bg-st-bianco px-6 py-8"
+			className="flex h-dvh w-full flex-col items-center bg-st-bianco px-4 py-3 justify-between"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.3 }}
 		>
-			{/* Top placeholder box with diagonal lines */}
-			<div className="mt-16 flex w-full flex-col items-center gap-10">
-				<div
-					className="h-24 w-52 border border-st-rosso"
-					style={{
-						backgroundImage:
-							"repeating-linear-gradient(45deg, transparent, transparent 6px, #e20303 6px, #e20303 7px)",
-					}}
-				>
-					<div className="flex h-full items-center justify-center bg-st-bianco/80">
-						<span className="font-ibm-mono text-[10px] font-medium text-st-rosso">Contact us</span>
-					</div>
-				</div>
-
-				{/* Red circle with inner ring */}
-				<div className="flex h-10 w-10 items-center justify-center rounded-full bg-st-rosso">
-					<div className="h-6 w-6 rounded-full border-2 border-st-bianco" />
-				</div>
-
-				{/* Smaller placeholder box */}
-				<div
-					className="h-16 w-36 border border-st-rosso"
-					style={{
-						backgroundImage:
-							"repeating-linear-gradient(45deg, transparent, transparent 6px, #e20303 6px, #e20303 7px)",
-					}}
-				>
-					<div className="h-full w-full bg-st-bianco/80" />
-				</div>
+			{/* Big placeholder box with X pattern */}
+			<div className="relative flex w-10/12 items-center justify-center border border-st-rosso aspect-243/110 mt-[10%]">
+				<XLines />
+				<span className="bg-st-bianco px-4 py-2 font-ibm-mono text-[10px] font-medium text-st-rosso relative z-10">
+					Contact us
+				</span>
 			</div>
 
-			{/* Footer */}
-			<div className="flex w-full flex-col gap-0.5 font-ibm-mono text-[6px] font-medium text-st-rosso">
-				<div className="flex justify-between">
-					<span>Developed by</span>
-					<span>© STST</span>
+			{/* Red dot — solid */}
+			<div className="h-10 w-10 rounded-full bg-st-rosso absolute top-6/9 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
+			<div className="w-full flex-col items-center justify-center gap-5 flex">
+				{/* Small placeholder box with X pattern */}
+				<div className="relative w-full border border-st-rosso aspect-270/35">
+					<XLines />
 				</div>
-				<div className="flex justify-between">
-					<span>Enea Scaccabarozzi</span>
-					<span>All rights res.</span>
-				</div>
-				<div className="flex justify-end">
-					<span>2026</span>
+
+				{/* Footer */}
+				<div className="flex w-full flex-row font-ibm-mono text-[8px] font-medium text-st-rosso justify-between items-end">
+					<div className="flex flex-row gap-8">
+						<div className="flex flex-col">
+							<span>Developed by</span>
+							<span>
+								<a href="https://eneascaccabarozzi.xyz" target="_blank" rel="noopener noreferrer">
+									Enea Scaccabarozzi
+								</a>
+							</span>
+						</div>
+						<div className="flex flex-col">
+							<span>© STessoSTudio</span>
+							<span>All rights reserved</span>
+						</div>
+					</div>
+
+					<div className="flex h-full flex-col items-end justify-end">
+						<span>2026</span>
+					</div>
 				</div>
 			</div>
 		</motion.div>

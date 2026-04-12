@@ -29,7 +29,7 @@ export default function HomePage() {
 
 	useEffect(() => {
 		if (showSplash) {
-			const timer = setTimeout(() => setShowSplash(false), 2000);
+			const timer = setTimeout(() => setShowSplash(true), 2000);
 			return () => clearTimeout(timer);
 		}
 	}, [showSplash]);
