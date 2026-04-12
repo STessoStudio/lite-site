@@ -2,10 +2,11 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
-import { LayoutBianca } from "@/components/LayoutBianca";
+import { CycleDot } from "@/components/CycleDot";
 import { LayoutNera } from "@/components/LayoutNera";
 import { LayoutRossa } from "@/components/LayoutRossa";
 import { SplashScreen } from "@/components/SplashScreen";
+import { WhiteSkin } from "@/components/WhiteSkin";
 
 type LayoutVariant = "bianca" | "nera" | "rossa";
 
@@ -29,18 +30,17 @@ export default function HomePage() {
 
 	useEffect(() => {
 		if (showSplash) {
-			const timer = setTimeout(() => setShowSplash(true), 2000);
+			const timer = setTimeout(() => setShowSplash(false), 1000);
 			return () => clearTimeout(timer);
 		}
 	}, [showSplash]);
 
 	return (
 		<main className="h-dvh w-full overflow-hidden">
-			<AnimatePresence mode="wait">
+			<AnimatePresence mode="sync">
 				{showSplash ? (
 					<motion.div
 						key="splash"
-						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.5 }}
@@ -55,11 +55,7 @@ export default function HomePage() {
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.4 }}
 					>
-						<LayoutBianca
-							onCycleLayout={cycleLayout}
-							titleCondensed={titleCondensed}
-							onTitleClick={handleTitleClick}
-						/>
+						<WhiteSkin titleCondensed={titleCondensed} onTitleClick={handleTitleClick} />
 					</motion.div>
 				) : layout === "nera" ? (
 					<motion.div
@@ -69,7 +65,7 @@ export default function HomePage() {
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.4 }}
 					>
-						<LayoutNera onCycleLayout={cycleLayout} />
+						<LayoutNera />
 					</motion.div>
 				) : (
 					<motion.div
@@ -79,10 +75,15 @@ export default function HomePage() {
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.4 }}
 					>
-						<LayoutRossa onCycleLayout={cycleLayout} />
+						<LayoutRossa />
 					</motion.div>
 				)}
 			</AnimatePresence>
+			<CycleDot
+				onClick={showSplash ? () => {} : cycleLayout}
+				variant={showSplash ? "red" : layout === "nera" ? "outline" : "filled"}
+				className="fixed top-7/11 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+			/>
 		</main>
 	);
 }

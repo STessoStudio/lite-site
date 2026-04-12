@@ -1,9 +1,3 @@
-import { CycleDot } from "./CycleDot";
-
-interface LayoutNeraProps {
-	onCycleLayout: () => void;
-}
-
 const ROW_OFFSETS = ["pl-2", "pl-8", "pl-16", "pl-4", "pl-6"] as const;
 
 function ContactLine() {
@@ -29,7 +23,7 @@ function ContactLine() {
 	);
 }
 
-export function LayoutNera({ onCycleLayout }: LayoutNeraProps) {
+export function LayoutNera() {
 	return (
 		<div className="flex h-dvh w-full flex-col justify-between bg-st-nero px-2 py-6 text-st-bianco">
 			<div className="flex flex-col gap-1">
@@ -45,11 +39,6 @@ export function LayoutNera({ onCycleLayout }: LayoutNeraProps) {
 						<ContactLine />
 					</div>
 				))}
-			</div>
-
-			{/* Cycle dot centered */}
-			<div className="flex items-center justify-center py-4">
-				<CycleDot onClick={onCycleLayout} variant="outline" />
 			</div>
 
 			{/* Row 5 at bottom */}

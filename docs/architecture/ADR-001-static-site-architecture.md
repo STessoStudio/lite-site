@@ -17,14 +17,14 @@ Build the STST site as a fully static, single-route Next.js app with client-side
 
 ### Stack
 
-| Layer        | Choice                      | Rationale                                        |
-| ------------ | --------------------------- | ------------------------------------------------ |
-| Framework    | Next.js (App Router)        | Static export, built-in font optimization        |
-| Styling      | Tailwind CSS v4 (PostCSS)   | Utility-first, design-token friendly             |
-| Animation    | Framer Motion               | `AnimatePresence` for layout transitions         |
-| Linting      | Biome                       | Single tool replaces ESLint + Prettier           |
-| Git hooks    | Lefthook + commitlint       | Conventional commits, pre-push lint/type checks  |
-| Deployment   | Dockerfile + Cloudflare Pages | Static build served via nginx or CF edge        |
+| Layer      | Choice                        | Rationale                                       |
+| ---------- | ----------------------------- | ----------------------------------------------- |
+| Framework  | Next.js (App Router)          | Static export, built-in font optimization       |
+| Styling    | Tailwind CSS v4 (PostCSS)     | Utility-first, design-token friendly            |
+| Animation  | Framer Motion                 | `AnimatePresence` for layout transitions        |
+| Linting    | Biome                         | Single tool replaces ESLint + Prettier          |
+| Git hooks  | Lefthook + commitlint         | Conventional commits, pre-push lint/type checks |
+| Deployment | Dockerfile + Cloudflare Pages | Static build served via nginx or CF edge        |
 
 ### 3-Layout Cycling Pattern
 
@@ -43,12 +43,12 @@ const cycleLayout = useCallback(() => {
 }, []);
 ```
 
-Each variant is a standalone component (`LayoutBianca`, `LayoutNera`, `LayoutRossa`) wrapped in Framer Motion's `AnimatePresence` for cross-fade transitions.
+Each variant is a standalone component (`WhiteSkin`, `LayoutNera`, `LayoutRossa`) wrapped in Framer Motion's `AnimatePresence` for cross-fade transitions.
 
 ### Splash Screen Flow
 
 ```
-SplashScreen (2s timeout) → fade-out → LayoutBianca → dot-click cycling
+SplashScreen (2s timeout) → fade-out → WhiteSkin → dot-click cycling
 ```
 
 The splash auto-dismisses after 2 seconds. On subsequent cycles back to bianca, the splash is skipped.
@@ -57,30 +57,30 @@ The splash auto-dismisses after 2 seconds. On subsequent cycles back to bianca, 
 
 Three local fonts loaded via `next/font/local` with CSS custom properties:
 
-| Font                          | Variable              | Usage                       |
-| ----------------------------- | --------------------- | --------------------------- |
-| IBM Plex Mono (200, 500)      | `--font-ibm-mono-var` | Body text, footer, buttons  |
-| Neue Haas Grotesk Display 65M | `--font-neue-haas-var`| Headings, title             |
-| Slipstream Std Demi           | `--font-slipstream-var`| "ST" logo pairs (Nera)     |
+| Font                          | Variable                | Usage                      |
+| ----------------------------- | ----------------------- | -------------------------- |
+| IBM Plex Mono (200, 500)      | `--font-ibm-mono-var`   | Body text, footer, buttons |
+| Neue Haas Grotesk Display 65M | `--font-neue-haas-var`  | Headings, title            |
+| Slipstream Std Demi           | `--font-slipstream-var` | "ST" logo pairs (Nera)     |
 
 ### Color Palette
 
-| Token         | Value     | Usage                      |
-| ------------- | --------- | -------------------------- |
-| `--st-bianco` | `#FFFFFF` | White layout background    |
-| `--st-nero`   | `#000000` | Black layout, text         |
-| `--st-rosso`  | `#E20303` | Red layout, accent/hover   |
+| Token         | Value     | Usage                    |
+| ------------- | --------- | ------------------------ |
+| `--st-bianco` | `#FFFFFF` | White layout background  |
+| `--st-nero`   | `#000000` | Black layout, text       |
+| `--st-rosso`  | `#E20303` | Red layout, accent/hover |
 
 ## Implementation Phases
 
-| Phase                    | What Changed                                                |
-| ------------------------ | ----------------------------------------------------------- |
+| Phase                    | What Changed                                                      |
+| ------------------------ | ----------------------------------------------------------------- |
 | 1. Next.js scaffold      | App Router project with Tailwind v4, Framer Motion, static export |
-| 2. Tooling & linting     | Biome, commitlint, lefthook git hooks                       |
-| 3. CI/CD & containers    | GitHub Actions, Dockerfile (nginx), Cloudflare Pages deploy |
-| 4. Docs & community      | README, CONTRIBUTING, AGENTS.md, LICENSE, CoC, SECURITY     |
-| 5. Fonts & design tokens | 3 local fonts wired via CSS variables, color palette        |
-| 6. Mobile skeleton       | Splash screen, 3 layout components, dot-click cycling       |
+| 2. Tooling & linting     | Biome, commitlint, lefthook git hooks                             |
+| 3. CI/CD & containers    | GitHub Actions, Dockerfile (nginx), Cloudflare Pages deploy       |
+| 4. Docs & community      | README, CONTRIBUTING, AGENTS.md, LICENSE, CoC, SECURITY           |
+| 5. Fonts & design tokens | 3 local fonts wired via CSS variables, color palette              |
+| 6. Mobile skeleton       | Splash screen, 3 layout components, dot-click cycling             |
 
 ## Current Structure
 
@@ -92,7 +92,7 @@ src/
 │   └── page.tsx          # Single route — splash + layout cycling
 ├── components/
 │   ├── CycleDot.tsx      # Central dot triggering layout cycle
-│   ├── LayoutBianca.tsx  # White variant
+│   ├── WhiteSkin.tsx  # White variant
 │   ├── LayoutNera.tsx    # Black variant
 │   ├── LayoutRossa.tsx   # Red variant
 │   └── SplashScreen.tsx  # 2s intro splash

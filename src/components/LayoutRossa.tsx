@@ -1,10 +1,4 @@
-import { CycleDot } from "./CycleDot";
-
-interface LayoutRossaProps {
-	onCycleLayout: () => void;
-}
-
-export function LayoutRossa({ onCycleLayout }: LayoutRossaProps) {
+export function LayoutRossa() {
 	return (
 		<div className="flex h-dvh w-full flex-col items-center justify-center gap-8 bg-st-rosso px-6 text-st-nero">
 			{/* Contact info */}
@@ -32,10 +26,6 @@ export function LayoutRossa({ onCycleLayout }: LayoutRossaProps) {
 					src="/images/horses-rossa.svg"
 					alt="Horses illustration"
 					className="w-full max-w-[280px] rotate-[9deg]"
-				/>
-				<CycleDot
-					onClick={onCycleLayout}
-					className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 				/>
 			</div>
 		</div>

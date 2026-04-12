@@ -44,9 +44,6 @@ export function SplashScreen() {
 				</span>
 			</div>
 
-			{/* Red dot — solid */}
-			<div className="h-10 w-10 rounded-full bg-st-rosso absolute top-6/9 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-
 			<div className="w-full flex-col items-center justify-center gap-5 flex">
 				{/* Small placeholder box with X pattern */}
 				<div className="relative w-full border border-st-rosso aspect-270/35">
