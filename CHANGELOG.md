@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0](https://github.com/STessoStudio/lite-site/compare/v1.0.0...v1.1.0) (2026-04-12)
+
+
+### Features
+
+* implement black skin page ([c3c2c1f](https://github.com/STessoStudio/lite-site/commit/c3c2c1f31f0ef83d1aa02b42271de0022c088c43))
+* implement red skin page ([37743f9](https://github.com/STessoStudio/lite-site/commit/37743f97bc506b0fdac347c11b70bb32e8aa2c73))
+* implement splash screen ([e892655](https://github.com/STessoStudio/lite-site/commit/e892655d2cc48527885584450a317c7c1ff7ee78))
+* implement white skin page ([80615cd](https://github.com/STessoStudio/lite-site/commit/80615cd3ccad368c598616626311b483155c7873))
+* **seo:** add comprehensive SEO metadata, JSON-LD, robots, sitemap ([d5c27f4](https://github.com/STessoStudio/lite-site/commit/d5c27f4cd483ac7a9c62e23d611548e5f8b7f81a))
+
 ## [Unreleased]
 
 ### Added
