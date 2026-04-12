@@ -1,16 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
-interface WhiteSkinProps {
-	titleCondensed: boolean;
-	onTitleClick: () => void;
-}
-
 const TITLE_CHARS = "STesso STudio".split("");
 const VISIBLE_INDICES = new Set([0, 1, 7, 8]); // S, T ... S, T
 
-export function WhiteSkin({ titleCondensed, onTitleClick }: WhiteSkinProps) {
+export function WhiteSkin() {
 	const [horseFrame, setHorseFrame] = useState<0 | 1>(0);
 	const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+	const [titleCondensed, setTitleCondensed] = useState(false);
+	const onTitleClick = () => setTitleCondensed((prev) => !prev);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: intentionally runs once on mount; initial speed is a one-time read
 	useEffect(() => {
@@ -83,7 +81,7 @@ export function WhiteSkin({ titleCondensed, onTitleClick }: WhiteSkinProps) {
 					horseFrame === 0 ? "/images/horses-white-frame-1.svg" : "/images/horses-white-frame-2.svg"
 				}
 				alt="Horses illustration"
-				className="fixed top-7/11 left-1/2 z-10 w-10/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[9deg]"
+				className="fixed top-7/11 left-1/2 z-10 w-10/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
 			/>
 
 			{/* Bottom section */}

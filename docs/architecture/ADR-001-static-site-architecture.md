@@ -43,7 +43,7 @@ const cycleLayout = useCallback(() => {
 }, []);
 ```
 
-Each variant is a standalone component (`WhiteSkin`, `BlackSkin`, `LayoutRossa`) wrapped in Framer Motion's `AnimatePresence` for cross-fade transitions.
+Each variant is a standalone component (`WhiteSkin`, `BlackSkin`, `RedSkin`) wrapped in Framer Motion's `AnimatePresence` for cross-fade transitions.
 
 ### Splash Screen Flow
 
@@ -94,7 +94,7 @@ src/
 │   ├── CycleDot.tsx      # Central dot triggering layout cycle
 │   ├── WhiteSkin.tsx  # White variant
 │   ├── BlackSkin.tsx    # Black variant
-│   ├── LayoutRossa.tsx   # Red variant
+│   ├── RedSkin.tsx   # Red variant
 │   └── SplashScreen.tsx  # 2s intro splash
 ├── fonts/                # Local font files (TTF, WOFF, WOFF2)
 └── lib/
