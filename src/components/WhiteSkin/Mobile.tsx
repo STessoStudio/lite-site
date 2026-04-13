@@ -3,44 +3,44 @@ import { useEffect, useRef, useState } from "react";
 const TITLE_CHARS = "STesso STudio".split("");
 const VISIBLE_INDICES = new Set([0, 1, 7, 8]); // S, T ... S, T
 
-export function WhiteSkin() {
-	const [horseFrame, setHorseFrame] = useState<0 | 1>(0);
-	const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+export function WhiteSkinMobile() {
+	const frame1Ref = useRef<HTMLImageElement>(null);
+	const frame2Ref = useRef<HTMLImageElement>(null);
+	const intervalMsRef = useRef(130);
 
 	const [titleCondensed, setTitleCondensed] = useState(false);
-	const onTitleClick = () => setTitleCondensed((prev) => !prev);
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: intentionally runs once on mount; initial speed is a one-time read
 	useEffect(() => {
-		const delay = setTimeout(() => {
-			intervalRef.current = setInterval(
-				() => {
-					setHorseFrame((prev) => (prev === 0 ? 1 : 0));
-				},
-				titleCondensed ? 100 : 130,
-			);
+		intervalMsRef.current = titleCondensed ? 100 : 130;
+	}, [titleCondensed]);
+
+	useEffect(() => {
+		let rafId: number;
+		let lastFlip = 0;
+		let currentFrame = 0;
+
+		const tick = (timestamp: number) => {
+			if (lastFlip === 0) lastFlip = timestamp;
+
+			if (timestamp - lastFlip >= intervalMsRef.current) {
+				currentFrame ^= 1;
+				if (frame1Ref.current) frame1Ref.current.style.display = currentFrame === 0 ? "" : "none";
+				if (frame2Ref.current) frame2Ref.current.style.display = currentFrame === 1 ? "" : "none";
+				lastFlip = timestamp;
+			}
+
+			rafId = requestAnimationFrame(tick);
+		};
+
+		const delayId = setTimeout(() => {
+			rafId = requestAnimationFrame(tick);
 		}, 500);
 
 		return () => {
-			clearTimeout(delay);
-			if (intervalRef.current) {
-				clearInterval(intervalRef.current);
-			}
+			clearTimeout(delayId);
+			cancelAnimationFrame(rafId);
 		};
 	}, []);
-
-	// Speed update: restart interval immediately without delay
-	useEffect(() => {
-		if (!intervalRef.current) return;
-
-		clearInterval(intervalRef.current);
-		intervalRef.current = setInterval(
-			() => {
-				setHorseFrame((prev) => (prev === 0 ? 1 : 0));
-			},
-			titleCondensed ? 100 : 130,
-		);
-	}, [titleCondensed]);
 
 	return (
 		<div className="flex h-dvh w-full flex-col justify-between bg-st-bianco px-[4vw] py-3 text-st-nero">
@@ -74,14 +74,22 @@ export function WhiteSkin() {
 				</div>
 			</div>
 
-			{/* Horse image — fixed to match CycleDot anchor point at all viewport sizes */}
+			{/* Horse — both frames in DOM; rAF loop toggles display */}
 			{/* biome-ignore lint/performance/noImgElement: static export, next/image provides no benefit */}
 			<img
-				src={
-					horseFrame === 0 ? "/images/horses-white-frame-1.svg" : "/images/horses-white-frame-2.svg"
-				}
+				ref={frame1Ref}
+				src="/images/horses-white-frame-1.svg"
 				alt="Horses illustration"
 				className="fixed top-7/11 left-1/2 z-10 w-10/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
+			/>
+			{/* biome-ignore lint/performance/noImgElement: static export, next/image provides no benefit */}
+			<img
+				ref={frame2Ref}
+				src="/images/horses-white-frame-2.svg"
+				alt=""
+				aria-hidden="true"
+				className="fixed top-7/11 left-1/2 z-10 w-10/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
+				style={{ display: "none" }}
 			/>
 
 			{/* Bottom section */}
@@ -90,7 +98,7 @@ export function WhiteSkin() {
 				<button
 					type="button"
 					aria-label="Toggle condensed title"
-					onClick={onTitleClick}
+					onClick={() => setTitleCondensed((prev) => !prev)}
 					className="cursor-pointer font-neue-haas text-[13.7vw] leading-none select-none text-left"
 				>
 					{TITLE_CHARS.map((char, i) => (

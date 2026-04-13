@@ -16,8 +16,8 @@ function ContactLine() {
 				>
 					@stessostudio
 				</a>
-				<a href="mailto:stessostudio@gmail.com" className="transition-colors hover:text-st-rosso">
-					stessostudio@gmail.com
+				<a href="mailto:stessost@gmail.com" className="transition-colors hover:text-st-rosso">
+					stessost@gmail.com
 				</a>
 			</div>
 			<div className="flex items-end h-full">
@@ -29,11 +29,10 @@ function ContactLine() {
 	);
 }
 
-export function BlackSkin() {
+export function BlackSkinMobile() {
 	return (
 		<div className="flex h-dvh w-full flex-col justify-between bg-st-nero px-[4vw] py-3 text-st-bianco">
 			<div className="flex flex-col gap-2">
-				{/* Rows 1-4 with contact lines */}
 				{ROWS.map((id, index) => {
 					const isOdd = (index + 1) % 2 !== 0;
 					return (

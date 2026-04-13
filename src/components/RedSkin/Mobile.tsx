@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export function RedSkin() {
+export function RedSkinMobile() {
 	return (
 		<div className="flex h-dvh w-full items-start justify-center gap-8 bg-st-rosso px-6 text-st-nero">
 			{/* Contact info */}
