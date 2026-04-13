@@ -1,5 +1,4 @@
-// TODO: Replace with actual production domain once confirmed by client
-export const SITE_URL = "https://stessostudio.it";
+export const SITE_URL = "https://stesso.studio";
 
 export const SITE_NAME = "STST — STesso STudio";
 
