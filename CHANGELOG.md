@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0](https://github.com/STessoStudio/lite-site/compare/v0.1.0...v0.2.0) (2026-04-22)
+
+
+### Features
+
+* implement design fixes and enhancements ([efdce8e](https://github.com/STessoStudio/lite-site/commit/efdce8e9a34eb2f0d7de0f69ff62bae6e3a72860))
+
 ## [0.1.0](https://github.com/STessoStudio/lite-site/compare/v0.0.1...v0.1.0) (2026-04-13)
 
 
