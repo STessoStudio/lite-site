@@ -15,33 +15,29 @@ interface ContactLineProps {
 }
 
 function ContactLine({ align }: ContactLineProps) {
-	const justifyClass =
-		align === "right"
-			? "justify-end gap-4"
-			: align === "left"
-				? "justify-start gap-4"
-				: "justify-between";
+	const outerJustify =
+		align === "right" ? "justify-end" : align === "left" ? "justify-start" : "justify-center";
 	return (
-		<div
-			className={`flex items-center ${justifyClass} font-ibm-mono text-xs font-extralight text-st-bianco`}
-		>
-			<div className="flex flex-col leading-4">
-				<a
-					href="https://instagram.com/stessostudio"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="transition-colors hover:text-st-rosso"
-				>
-					@stessostudio
-				</a>
-				<a href="mailto:stessost@gmail.com" className="transition-colors hover:text-st-rosso">
-					stessost@gmail.com
-				</a>
-			</div>
-			<div className="flex items-end h-full">
-				<a href="tel:+393317502777" className="transition-colors hover:text-st-rosso">
-					+39 331 75 02 777
-				</a>
+		<div className={`flex w-full ${outerJustify}`}>
+			<div className="flex w-[45vh] items-end justify-between font-ibm-mono text-xs font-extralight leading-[1.1] text-st-bianco">
+				<div className="flex flex-col">
+					<a
+						href="https://instagram.com/stessostudio"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="transition-colors hover:text-st-rosso"
+					>
+						@stessostudio
+					</a>
+					<a href="mailto:stessost@gmail.com" className="transition-colors hover:text-st-rosso">
+						stessost@gmail.com
+					</a>
+				</div>
+				<div className="flex h-full items-end">
+					<a href="tel:+393317502777" className="transition-colors hover:text-st-rosso">
+						+39 331 75 02 777
+					</a>
+				</div>
 			</div>
 		</div>
 	);
@@ -49,17 +45,14 @@ function ContactLine({ align }: ContactLineProps) {
 
 export function BlackSkinDesktop() {
 	return (
-		<div className="flex h-dvh w-full flex-col bg-st-nero text-st-bianco items-center justify-center gap-8 px-6">
+		<div className="flex h-dvh w-full flex-col bg-st-nero text-st-bianco items-center justify-center gap-0 px-5">
 			{/* Row 1 — animates right, contact right-aligned */}
-			<div className="flex w-full">
+			<div className="flex w-full px-[2vw]">
 				{[0, 1].map((i) => (
-					<div
-						key={i}
-						className="flex w-1/2 flex-col justify-between overflow-visible px-[2vw] py-3"
-					>
+					<div key={i} className="flex w-1/2 flex-col justify-between overflow-visible px-0 py-3">
 						<motion.div
 							className="flex items-center font-slipstream text-[4vw] leading-none"
-							animate={{ x: ["0vw", "20vw"] }}
+							animate={{ x: ["0vw", "27vw"] }}
 							transition={TRANSITION}
 						>
 							<span className="mr-[9vw]">ST</span>
@@ -72,13 +65,10 @@ export function BlackSkinDesktop() {
 			{/* Row 2 — animates left (opposite), contact left-aligned */}
 			<div className="flex w-full">
 				{[0, 1].map((i) => (
-					<div
-						key={i}
-						className="flex w-1/2 flex-col justify-between overflow-visible px-[2vw] py-3"
-					>
+					<div key={i} className="flex w-1/2 flex-col justify-between overflow-visible px-0 py-3">
 						<motion.div
 							className="flex items-center font-slipstream text-[4vw] leading-none"
-							animate={{ x: ["20vw", "0vw"] }}
+							animate={{ x: ["27vw", "0vw"] }}
 							transition={TRANSITION}
 						>
 							<span className="mr-[9vw]">ST</span>
@@ -89,11 +79,11 @@ export function BlackSkinDesktop() {
 				))}
 			</div>
 			<motion.span
-				className="fixed bottom-3 left-3 font-ibm-mono text-xs font-extralight text-st-bianco z-10"
-				animate={{ x: ["0vw", "20vw"] }}
+				className="fixed bottom-3 left-5 font-ibm-mono text-xs font-extralight text-st-bianco z-10"
+				animate={{ x: ["0vw", "74vw"] }}
 				transition={TRANSITION}
 			>
-				Click anywhere...
+				Click anywhere
 			</motion.span>
 		</div>
 	);

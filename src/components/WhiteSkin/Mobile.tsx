@@ -3,7 +3,11 @@ import { useEffect, useRef, useState } from "react";
 const TITLE_CHARS = "STesso STudio".split("");
 const VISIBLE_INDICES = new Set([0, 1, 7, 8]); // S, T ... S, T
 
-export function WhiteSkinMobile() {
+interface WhiteSkinMobileProps {
+	onHorseClick: () => void;
+}
+
+export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 	const frame1Ref = useRef<HTMLImageElement>(null);
 	const frame2Ref = useRef<HTMLImageElement>(null);
 	const intervalMsRef = useRef(130);
@@ -80,7 +84,9 @@ export function WhiteSkinMobile() {
 				ref={frame1Ref}
 				src="/images/horses-white-frame-1.svg"
 				alt="Horses illustration"
-				className="fixed top-7/11 left-1/2 z-10 w-10/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
+				className="fixed top-7/11 left-1/2 z-10 w-9/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
+				onClick={() => onHorseClick()}
+				onKeyDown={() => null}
 			/>
 			{/* biome-ignore lint/performance/noImgElement: static export, next/image provides no benefit */}
 			<img
@@ -88,12 +94,14 @@ export function WhiteSkinMobile() {
 				src="/images/horses-white-frame-2.svg"
 				alt=""
 				aria-hidden="true"
-				className="fixed top-7/11 left-1/2 z-10 w-10/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
+				className="fixed top-7/11 left-1/2 z-10 w-9/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
 				style={{ display: "none" }}
+				onClick={() => onHorseClick()}
+				onKeyDown={() => null}
 			/>
 
 			{/* Bottom section */}
-			<div className="flex flex-col gap-2">
+			<div className="flex flex-col gap-1">
 				{/* Title */}
 				<button
 					type="button"
@@ -112,7 +120,7 @@ export function WhiteSkinMobile() {
 				</button>
 
 				{/* Footer contact */}
-				<div className="flex items-center justify-between font-ibm-mono text-xs font-extralight">
+				<div className="flex items-end justify-between font-ibm-mono text-xs font-extralight leading-[1.1] -mt-2">
 					<div className="flex flex-col">
 						<a
 							href="https://www.instagram.com/stessostudio"
@@ -122,11 +130,8 @@ export function WhiteSkinMobile() {
 						>
 							@stessostudio
 						</a>
-						<a
-							href="mailto:stessostudio@gmail.com"
-							className="transition-colors hover:text-st-rosso"
-						>
-							stessostudio@gmail.com
+						<a href="mailto:stessost@gmail.com" className="transition-colors hover:text-st-rosso">
+							stessost@gmail.com
 						</a>
 					</div>
 

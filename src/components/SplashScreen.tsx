@@ -51,7 +51,7 @@ export function SplashScreen() {
 				</div>
 
 				{/* Footer */}
-				<div className="flex w-full flex-row font-ibm-mono text-[8px] font-medium text-st-rosso justify-between items-end">
+				<div className="flex w-full flex-row font-ibm-mono text-[8px] font-medium text-st-rosso justify-between items-end leading-tight">
 					<div className="flex flex-row gap-8">
 						<div className="flex flex-col">
 							<span>Developed by</span>

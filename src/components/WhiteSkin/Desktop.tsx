@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 export function WhiteSkinDesktop() {
 	const frame1Ref = useRef<HTMLImageElement>(null);
 	const frame2Ref = useRef<HTMLImageElement>(null);
-	const intervalMsRef = useRef(130);
+	const intervalMsRef = useRef(170);
 	const dotsRef = useRef<HTMLSpanElement>(null);
 
 	// Single rAF loop: timestamp-based timing, direct DOM toggle, zero React re-renders
@@ -81,7 +81,7 @@ export function WhiteSkinDesktop() {
 					<span className="font-neue-haas text-[15.5cqw] leading-none">STesso STudio</span>
 
 					{/* Footer contact */}
-					<div className="flex items-center justify-between font-ibm-mono text-[3.5cqw] font-extralight">
+					<div className="flex items-end justify-between font-ibm-mono text-xs font-extralight leading-[1.1]">
 						<div className="flex flex-col">
 							<a
 								href="https://www.instagram.com/stessostudio"
@@ -91,11 +91,8 @@ export function WhiteSkinDesktop() {
 							>
 								@stessostudio
 							</a>
-							<a
-								href="mailto:stessostudio@gmail.com"
-								className="transition-colors hover:text-st-rosso"
-							>
-								stessostudio@gmail.com
+							<a href="mailto:stessost@gmail.com" className="transition-colors hover:text-st-rosso">
+								stessost@gmail.com
 							</a>
 						</div>
 
@@ -114,7 +111,7 @@ export function WhiteSkinDesktop() {
 				ref={frame1Ref}
 				src="/images/horses-white-frame-1-desktop.svg"
 				alt="Horses illustration"
-				className="fixed top-1/2 left-1/2 z-20 w-10/12 translate-x-[calc(-50%+10vw)] translate-y-[calc(-50%+3vh)]"
+				className="fixed top-1/2 left-1/2 z-20 w-10/12 translate-x-[calc(-50%+5vw)] translate-y-[calc(-50%+3vh)]"
 			/>
 			{/* biome-ignore lint/performance/noImgElement: static export, next/image provides no benefit */}
 			<img
@@ -122,10 +119,10 @@ export function WhiteSkinDesktop() {
 				src="/images/horses-white-frame-2-desktop.svg"
 				alt=""
 				aria-hidden="true"
-				className="fixed top-1/2 left-1/2 z-20 w-10/12 translate-x-[calc(-50%+10vw)] translate-y-[calc(-50%+3vh)]"
+				className="fixed top-1/2 left-1/2 z-20 w-10/12 translate-x-[calc(-50%+5vw)] translate-y-[calc(-50%+3vh)]"
 				style={{ display: "none" }}
 			/>
-			<span className="fixed bottom-3 left-3 font-ibm-mono text-xs font-extralight text-st-nero z-30">
+			<span className="fixed bottom-3 left-5 font-ibm-mono text-xs font-extralight text-st-nero z-30">
 				Click anywhere<span ref={dotsRef}>...</span>
 			</span>
 		</div>

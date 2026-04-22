@@ -25,7 +25,7 @@ export function RedSkinMobile() {
 			<motion.img
 				src="/images/horses-red.svg"
 				alt="Horses illustration"
-				className="fixed top-7/11 left-1/2 z-10 w-10/12 translate-x-[calc(-50%-2vw)] translate-y-[calc(-75%+9vw)]"
+				className="fixed top-7/11 left-1/2 z-10 w-9/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)]"
 				initial={{ rotate: -5 }}
 				animate={{ rotate: -5 }}
 				exit={{ rotate: 7 }}

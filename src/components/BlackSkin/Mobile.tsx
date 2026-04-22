@@ -7,7 +7,7 @@ const ROWS = ["row-1", "row-2", "row-3", "row-4"] as const;
 function ContactLine() {
 	return (
 		<div className="flex items-center justify-between font-ibm-mono text-xs font-extralight text-st-bianco">
-			<div className="flex flex-col leading-4">
+			<div className="flex flex-col leading-[1.1]">
 				<a
 					href="https://instagram.com/stessostudio"
 					target="_blank"
@@ -39,7 +39,7 @@ export function BlackSkinMobile() {
 						<div key={id} className="flex flex-col gap-1 px-1">
 							<motion.div
 								className="flex items-center font-slipstream text-[13.5vw] leading-none"
-								animate={{ x: isOdd ? ["0vw", "20vw"] : ["20vw", "0vw"] }}
+								animate={{ x: isOdd ? ["0vw", "27vw"] : ["27vw", "0vw"] }}
 								transition={{
 									duration: 0.25,
 									ease: "easeInOut",
@@ -48,7 +48,7 @@ export function BlackSkinMobile() {
 									repeatType: "mirror" as const,
 								}}
 							>
-								<span className="mr-[38vw]">ST</span>
+								<span className="mr-[28vw]">ST</span>
 								<span>ST</span>
 							</motion.div>
 							<ContactLine />
@@ -58,9 +58,9 @@ export function BlackSkinMobile() {
 			</div>
 
 			{/* Row 5 at bottom */}
-			<div className="flex flex-col gap-1">
+			<div className="flex flex-col gap-0">
 				<div className="flex items-center font-slipstream text-[13.5vw] leading-none">
-					<span className="mr-[38vw]">ST</span>
+					<span className="mr-[28vw] ml-2">ST</span>
 					<span>ST</span>
 				</div>
 				<ContactLine />

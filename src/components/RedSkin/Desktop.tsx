@@ -11,9 +11,7 @@ export function RedSkinDesktop() {
 				{/* Top section */}
 				<div className="flex flex-col items-center gap-[2cqw]">
 					<div className="flex flex-col items-center font-neue-haas text-[7cqw] leading-[7cqw]">
-						<span>Graphic design studio</span>
-						<span>Based in 72/SFF, Brescia</span>
-						<span>
+						<span className="mt-[14cqw]">
 							<a
 								href="https://www.instagram.com/stessostudio"
 								target="_blank"
@@ -39,15 +37,15 @@ export function RedSkinDesktop() {
 				<motion.img
 					src="/images/horses-red.svg"
 					alt="Horses illustration"
-					className="w-10/12"
+					className="w-9/12 self-center"
 					initial={{ rotate: -5 }}
 					animate={{ rotate: -5 }}
 					exit={{ rotate: 7 }}
 					transition={{ duration: 0.4 }}
 				/>
 			</div>
-			<span className="fixed bottom-3 left-3 font-ibm-mono text-xs font-extralight text-st-nero z-10">
-				Click anywhere...
+			<span className="fixed bottom-3 left-5 font-ibm-mono text-xs font-extralight text-st-nero z-10">
+				Click anywhere
 			</span>
 		</div>
 	);

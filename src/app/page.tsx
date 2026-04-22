@@ -33,7 +33,7 @@ export default function HomePage() {
 			return;
 		}
 		if (showSplash) {
-			const timer = setTimeout(() => setShowSplash(false), 1000);
+			const timer = setTimeout(() => setShowSplash(false), 1500);
 			return () => clearTimeout(timer);
 		}
 	}, [showSplash, isDesktop]);
@@ -73,7 +73,7 @@ export default function HomePage() {
 						className="absolute inset-0 sm:hidden"
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
-						transition={{ duration: isDesktop ? 0 : 0.5 }}
+						transition={{ duration: isDesktop ? 0 : 0.8, ease: "easeInOut" }}
 					>
 						<SplashScreen />
 					</motion.div>
@@ -86,7 +86,7 @@ export default function HomePage() {
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.4 }}
 					>
-						{isDesktop ? <WhiteSkinDesktop /> : <WhiteSkinMobile />}
+						{isDesktop ? <WhiteSkinDesktop /> : <WhiteSkinMobile onHorseClick={cycleLayout} />}
 					</motion.div>
 				) : layout === "nera" ? (
 					<motion.div
