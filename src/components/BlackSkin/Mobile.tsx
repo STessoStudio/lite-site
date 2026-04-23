@@ -12,16 +12,22 @@ function ContactLine() {
 					href="https://instagram.com/stessostudio"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="transition-colors hover:text-st-rosso"
+					className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 				>
 					@stessostudio
 				</a>
-				<a href="mailto:stessost@gmail.com" className="transition-colors hover:text-st-rosso">
+				<a
+					href="mailto:stessost@gmail.com"
+					className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+				>
 					stessost@gmail.com
 				</a>
 			</div>
 			<div className="flex items-end h-full">
-				<a href="tel:+393317502777" className="transition-colors hover:text-st-rosso">
+				<a
+					href="tel:+393317502777"
+					className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+				>
 					+39 331 75 02 777
 				</a>
 			</div>
@@ -38,7 +44,8 @@ export function BlackSkinMobile() {
 					return (
 						<div key={id} className="flex flex-col gap-1 px-1">
 							<motion.div
-								className="flex items-center font-slipstream text-[13.5vw] leading-none"
+								className="flex items-center font-slipstream text-[13.5vw] leading-none will-change-transform"
+								style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
 								animate={{ x: isOdd ? ["0vw", "27vw"] : ["27vw", "0vw"] }}
 								transition={{
 									duration: 0.25,

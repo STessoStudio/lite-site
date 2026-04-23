@@ -60,18 +60,24 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 							href="https://www.instagram.com/stessostudio"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="transition-colors hover:text-st-rosso"
+							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 						>
 							@stessostudio
 						</a>
 					</span>
 					<span>
-						<a href="mailto:stessost@gmail.com" className="transition-colors hover:text-st-rosso">
+						<a
+							href="mailto:stessost@gmail.com"
+							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+						>
 							stessost@gmail.com
 						</a>
 					</span>
 					<span>
-						<a href="tel:+393317502777" className="transition-colors hover:text-st-rosso">
+						<a
+							href="tel:+393317502777"
+							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+						>
 							+39 331 75 02 777
 						</a>
 					</span>
@@ -100,14 +106,18 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 				onKeyDown={() => null}
 			/>
 
-			{/* Bottom section */}
-			<div className="flex flex-col gap-1">
+			{/* Bottom section — z-20 ensures it sits above the z-10 fixed horse images */}
+			<div className="relative z-20 flex flex-col gap-1">
 				{/* Title */}
 				<button
 					type="button"
 					aria-label="Toggle condensed title"
 					onClick={() => setTitleCondensed((prev) => !prev)}
-					className="cursor-pointer font-neue-haas text-[13.7vw] leading-none select-none text-left"
+					onTouchEnd={(e) => {
+						e.preventDefault();
+						setTitleCondensed((prev) => !prev);
+					}}
+					className="cursor-pointer font-neue-haas text-[13.7vw] leading-none select-none text-left touch-manipulation"
 				>
 					{TITLE_CHARS.map((char, i) => (
 						<span
@@ -126,17 +136,23 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 							href="https://www.instagram.com/stessostudio"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="transition-colors hover:text-st-rosso"
+							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 						>
 							@stessostudio
 						</a>
-						<a href="mailto:stessost@gmail.com" className="transition-colors hover:text-st-rosso">
+						<a
+							href="mailto:stessost@gmail.com"
+							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+						>
 							stessost@gmail.com
 						</a>
 					</div>
 
 					<div className="flex h-full items-end">
-						<a href="tel:+393317502777" className="transition-colors hover:text-st-rosso">
+						<a
+							href="tel:+393317502777"
+							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+						>
 							+39 331 75 02 777
 						</a>
 					</div>

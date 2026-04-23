@@ -45,7 +45,7 @@ export function WhiteSkinDesktop() {
 
 			{/* Content box — phone-ratio container pinned to upper-left */}
 			<div
-				className="flex h-[60vh] aspect-3/4 flex-col justify-between px-5 py-2"
+				className="flex h-[calc(50vh+4vw+18px)] w-[calc(25vw+30px)] flex-col justify-between px-5 py-2"
 				style={{ containerType: "inline-size" }}
 			>
 				{/* Top section */}
@@ -111,7 +111,7 @@ export function WhiteSkinDesktop() {
 				ref={frame1Ref}
 				src="/images/horses-white-frame-1-desktop.svg"
 				alt="Horses illustration"
-				className="fixed top-1/2 left-1/2 z-20 w-10/12 translate-x-[calc(-50%+5vw)] translate-y-[calc(-50%+3vh)]"
+				className="fixed top-1/2 left-1/2 z-20 w-10/12 translate-x-[calc(-50%+8vw)] translate-y-[calc(-50%+3vh)]"
 			/>
 			{/* biome-ignore lint/performance/noImgElement: static export, next/image provides no benefit */}
 			<img
@@ -119,7 +119,7 @@ export function WhiteSkinDesktop() {
 				src="/images/horses-white-frame-2-desktop.svg"
 				alt=""
 				aria-hidden="true"
-				className="fixed top-1/2 left-1/2 z-20 w-10/12 translate-x-[calc(-50%+5vw)] translate-y-[calc(-50%+3vh)]"
+				className="fixed top-1/2 left-1/2 z-20 w-10/12 translate-x-[calc(-50%+8vw)] translate-y-[calc(-50%+3vh)]"
 				style={{ display: "none" }}
 			/>
 			<span className="fixed bottom-3 left-5 font-ibm-mono text-xs font-extralight text-st-nero z-30">

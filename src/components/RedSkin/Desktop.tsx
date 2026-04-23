@@ -37,7 +37,7 @@ export function RedSkinDesktop() {
 				<motion.img
 					src="/images/horses-red.svg"
 					alt="Horses illustration"
-					className="w-9/12 self-center"
+					className="w-9/12 self-center mb-16"
 					initial={{ rotate: -5 }}
 					animate={{ rotate: -5 }}
 					exit={{ rotate: 7 }}

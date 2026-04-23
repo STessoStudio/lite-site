@@ -19,7 +19,7 @@ function ContactLine({ align }: ContactLineProps) {
 		align === "right" ? "justify-end" : align === "left" ? "justify-start" : "justify-center";
 	return (
 		<div className={`flex w-full ${outerJustify}`}>
-			<div className="flex w-[45vh] items-end justify-between font-ibm-mono text-xs font-extralight leading-[1.1] text-st-bianco">
+			<div className="flex w-1/2 items-end justify-between font-ibm-mono text-xs font-extralight leading-[1.1] text-st-bianco">
 				<div className="flex flex-col">
 					<a
 						href="https://instagram.com/stessostudio"
@@ -47,12 +47,12 @@ export function BlackSkinDesktop() {
 	return (
 		<div className="flex h-dvh w-full flex-col bg-st-nero text-st-bianco items-center justify-center gap-0 px-5">
 			{/* Row 1 — animates right, contact right-aligned */}
-			<div className="flex w-full px-[2vw]">
+			<div className="flex w-full">
 				{[0, 1].map((i) => (
 					<div key={i} className="flex w-1/2 flex-col justify-between overflow-visible px-0 py-3">
 						<motion.div
 							className="flex items-center font-slipstream text-[4vw] leading-none"
-							animate={{ x: ["0vw", "27vw"] }}
+							animate={{ x: ["0vw", "29vw"] }}
 							transition={TRANSITION}
 						>
 							<span className="mr-[9vw]">ST</span>
@@ -68,7 +68,7 @@ export function BlackSkinDesktop() {
 					<div key={i} className="flex w-1/2 flex-col justify-between overflow-visible px-0 py-3">
 						<motion.div
 							className="flex items-center font-slipstream text-[4vw] leading-none"
-							animate={{ x: ["27vw", "0vw"] }}
+							animate={{ x: ["29vw", "0vw"] }}
 							transition={TRANSITION}
 						>
 							<span className="mr-[9vw]">ST</span>
@@ -80,7 +80,7 @@ export function BlackSkinDesktop() {
 			</div>
 			<motion.span
 				className="fixed bottom-3 left-5 font-ibm-mono text-xs font-extralight text-st-bianco z-10"
-				animate={{ x: ["0vw", "74vw"] }}
+				animate={{ x: ["0vw", "68vw"] }}
 				transition={TRANSITION}
 			>
 				Click anywhere
