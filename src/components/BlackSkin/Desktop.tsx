@@ -12,11 +12,15 @@ const TRANSITION = {
 
 interface ContactLineProps {
 	align?: "left" | "right";
+	firstBlock?: boolean;
 }
 
-function ContactLine({ align }: ContactLineProps) {
+function ContactLine({ align, firstBlock = false }: ContactLineProps) {
 	const outerJustify =
 		align === "right" ? "justify-end" : align === "left" ? "justify-start" : "justify-center";
+	// Block 1 (leftmost on screen) matches white skin's phone inset.
+	// 12px ≈ white's 3cqw of (25vw+30px) on a typical desktop viewport.
+	const phoneInset = firstBlock ? "mr-3" : "";
 	return (
 		<div className={`flex w-full ${outerJustify}`}>
 			<div className="flex w-1/2 items-end justify-between font-ibm-mono text-xs font-extralight leading-[1.1] text-st-bianco">
@@ -33,7 +37,7 @@ function ContactLine({ align }: ContactLineProps) {
 						stessost@gmail.com
 					</a>
 				</div>
-				<div className="flex h-full items-end">
+				<div className={`flex h-full items-end ${phoneInset}`}>
 					<a href="tel:+393317502777" className="transition-colors hover:text-st-rosso">
 						+39 331 75 02 777
 					</a>
@@ -74,7 +78,7 @@ export function BlackSkinDesktop() {
 							<span className="mr-[9vw]">ST</span>
 							<span>ST</span>
 						</motion.div>
-						<ContactLine align="left" />
+						<ContactLine align="left" firstBlock={i === 0} />
 					</div>
 				))}
 			</div>

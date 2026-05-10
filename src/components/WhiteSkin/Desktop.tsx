@@ -96,7 +96,7 @@ export function WhiteSkinDesktop() {
 							</a>
 						</div>
 
-						<div className="flex h-full items-end">
+						<div className="flex h-full items-end mr-[3cqw]">
 							<a href="tel:+393317502777" className="transition-colors hover:text-st-rosso">
 								+39 331 75 02 777
 							</a>

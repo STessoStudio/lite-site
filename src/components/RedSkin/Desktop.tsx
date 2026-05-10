@@ -3,15 +3,21 @@ import { motion } from "framer-motion";
 export function RedSkinDesktop() {
 	return (
 		<div className="h-dvh w-full bg-st-rosso text-st-nero">
-			{/* Content box — phone-ratio container pinned to upper-left */}
+			<p className="font-ibm-mono text-xs font-extralight w-full text-right pr-[20vw] pt-3 invisible">
+				never the same
+			</p>
+
+			{/* Mirror WhiteSkinDesktop's contact box so visible contact lines overlap on skin switch */}
 			<div
-				className="flex h-[60vh] aspect-3/4 flex-col justify-between px-5 py-2 pt-9"
+				className="flex h-[calc(50vh+4vw+18px)] w-[calc(25vw+30px)] flex-col justify-between px-5 py-2"
 				style={{ containerType: "inline-size" }}
 			>
-				{/* Top section */}
+				{/* Top section — replicates white skin's 5-line layout with first 2 invisible */}
 				<div className="flex flex-col items-center gap-[2cqw]">
 					<div className="flex flex-col items-center font-neue-haas text-[7cqw] leading-[7cqw]">
-						<span className="mt-[14cqw]">
+						<span className="invisible">Graphic design studio</span>
+						<span className="invisible">Based in 72/SFF, Brescia</span>
+						<span>
 							<a
 								href="https://www.instagram.com/stessostudio"
 								target="_blank"

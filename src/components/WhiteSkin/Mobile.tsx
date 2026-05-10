@@ -60,7 +60,7 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 							href="https://www.instagram.com/stessostudio"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+							className="touch-manipulation transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 						>
 							@stessostudio
 						</a>
@@ -68,7 +68,7 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 					<span>
 						<a
 							href="mailto:stessost@gmail.com"
-							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+							className="touch-manipulation transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 						>
 							stessost@gmail.com
 						</a>
@@ -76,7 +76,7 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 					<span>
 						<a
 							href="tel:+393317502777"
-							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+							className="touch-manipulation transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 						>
 							+39 331 75 02 777
 						</a>
@@ -90,7 +90,7 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 				ref={frame1Ref}
 				src="/images/horses-white-frame-1.svg"
 				alt="Horses illustration"
-				className="fixed top-7/11 left-1/2 z-10 w-9/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
+				className="fixed top-7/11 left-1/2 z-10 w-9/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg] touch-manipulation"
 				onClick={() => onHorseClick()}
 				onKeyDown={() => null}
 			/>
@@ -100,7 +100,7 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 				src="/images/horses-white-frame-2.svg"
 				alt=""
 				aria-hidden="true"
-				className="fixed top-7/11 left-1/2 z-10 w-9/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg]"
+				className="fixed top-7/11 left-1/2 z-10 w-9/12 -translate-x-1/2 translate-y-[calc(-75%+9vw)] rotate-[7deg] touch-manipulation"
 				style={{ display: "none" }}
 				onClick={() => onHorseClick()}
 				onKeyDown={() => null}
@@ -136,13 +136,13 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 							href="https://www.instagram.com/stessostudio"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+							className="touch-manipulation transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 						>
 							@stessostudio
 						</a>
 						<a
 							href="mailto:stessost@gmail.com"
-							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+							className="touch-manipulation transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 						>
 							stessost@gmail.com
 						</a>
@@ -151,7 +151,7 @@ export function WhiteSkinMobile({ onHorseClick }: WhiteSkinMobileProps) {
 					<div className="flex h-full items-end">
 						<a
 							href="tel:+393317502777"
-							className="transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
+							className="touch-manipulation transition-colors hover:text-st-rosso active:text-st-rosso active:transition-none"
 						>
 							+39 331 75 02 777
 						</a>
