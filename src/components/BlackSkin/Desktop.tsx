@@ -1,14 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
+import { useEffect } from "react";
 
-const TRANSITION = {
-	duration: 0.25,
-	ease: "easeInOut" as const,
-	repeatDelay: 0.25,
-	repeat: Infinity,
-	repeatType: "mirror" as const,
-};
+function useSharedProgress() {
+	const progress = useMotionValue(0);
+	useEffect(() => {
+		const controls = animate(progress, 1, {
+			duration: 0.25,
+			ease: "easeInOut",
+			repeatDelay: 0.25,
+			repeat: Infinity,
+			repeatType: "mirror",
+		});
+		return () => controls.stop();
+	}, [progress]);
+	return progress;
+}
 
 interface ContactLineProps {
 	align?: "left" | "right";
@@ -48,6 +56,11 @@ function ContactLine({ align, firstBlock = false }: ContactLineProps) {
 }
 
 export function BlackSkinDesktop() {
+	const progress = useSharedProgress();
+	const stForward = useTransform(progress, [0, 1], ["0vw", "25vw"]);
+	const stBackward = useTransform(progress, [0, 1], ["25vw", "0vw"]);
+	const clickX = useTransform(progress, [0, 1], ["0vw", "65vw"]);
+
 	return (
 		<div className="flex h-dvh w-full flex-col bg-st-nero text-st-bianco items-center justify-center gap-0 px-5">
 			{/* Row 1 — animates right, contact right-aligned */}
@@ -56,8 +69,7 @@ export function BlackSkinDesktop() {
 					<div key={i} className="flex w-1/2 flex-col justify-between overflow-visible px-0 py-3">
 						<motion.div
 							className="flex items-center font-slipstream text-[4vw] leading-none"
-							animate={{ x: ["0vw", "29vw"] }}
-							transition={TRANSITION}
+							style={{ x: stForward }}
 						>
 							<span className="mr-[9vw]">ST</span>
 							<span>ST</span>
@@ -72,8 +84,7 @@ export function BlackSkinDesktop() {
 					<div key={i} className="flex w-1/2 flex-col justify-between overflow-visible px-0 py-3">
 						<motion.div
 							className="flex items-center font-slipstream text-[4vw] leading-none"
-							animate={{ x: ["29vw", "0vw"] }}
-							transition={TRANSITION}
+							style={{ x: stBackward }}
 						>
 							<span className="mr-[9vw]">ST</span>
 							<span>ST</span>
@@ -84,8 +95,7 @@ export function BlackSkinDesktop() {
 			</div>
 			<motion.span
 				className="fixed bottom-3 left-5 font-ibm-mono text-xs font-extralight text-st-bianco z-10"
-				animate={{ x: ["0vw", "68vw"] }}
-				transition={TRANSITION}
+				style={{ x: clickX }}
 			>
 				Click anywhere
 			</motion.span>
