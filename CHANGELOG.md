@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.4](https://github.com/STessoStudio/lite-site/compare/v0.2.3...v0.2.4) (2026-05-16)
+
+
+### Bug Fixes
+
+* **seo:** replace invisible favicon and update title/description ([e37f7ba](https://github.com/STessoStudio/lite-site/commit/e37f7bac94353676d0dbd78ddf0cfc29e1c2ecc5))
+
 ## [0.2.3](https://github.com/STessoStudio/lite-site/compare/v0.2.2...v0.2.3) (2026-05-10)
 
 
