@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(SITE_URL),
-	title: "STST — STesso STudio | Graphic Design Studio Brescia",
+	title: "STesso STudio",
 	description: SITE_DESCRIPTION,
 	keywords: [
 		"graphic design",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 		locale: SITE_LOCALE,
 		url: "/",
 		siteName: SITE_NAME,
-		title: "STST — STesso STudio | Graphic Design Studio Brescia",
+		title: "STesso STudio",
 		description: SITE_DESCRIPTION,
 		images: [
 			{
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "STST — STesso STudio | Graphic Design Studio Brescia",
+		title: "STesso STudio",
 		description: SITE_DESCRIPTION,
 		images: ["/images/og-image.jpg"],
 	},
