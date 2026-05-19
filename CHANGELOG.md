@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.5](https://github.com/STessoStudio/lite-site/compare/v0.2.4...v0.2.5) (2026-05-19)
+
+
+### Bug Fixes
+
+* **seo:** use client-provided metro tape favicon ([2594f63](https://github.com/STessoStudio/lite-site/commit/2594f6366ab91f5503603e9beb7b33c8fa8e41d9))
+
 ## [0.2.4](https://github.com/STessoStudio/lite-site/compare/v0.2.3...v0.2.4) (2026-05-16)
 
 
