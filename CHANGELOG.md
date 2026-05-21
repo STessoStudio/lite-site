@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.6](https://github.com/STessoStudio/lite-site/compare/v0.2.5...v0.2.6) (2026-05-21)
+
+
+### Bug Fixes
+
+* **seo:** update metro favicon to tighter crop, transparent bg ([1e9a870](https://github.com/STessoStudio/lite-site/commit/1e9a87095f2fac7bd8f49c28f556697293b98eb7))
+
 ## [0.2.5](https://github.com/STessoStudio/lite-site/compare/v0.2.4...v0.2.5) (2026-05-19)
 
 
